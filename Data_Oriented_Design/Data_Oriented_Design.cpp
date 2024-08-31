@@ -169,7 +169,7 @@ long long timeDOD(const int nbr_test) {
 
 int main() {
 
-	const int TEST_COUNT{ 5000 };
+	const int TEST_COUNT{ 500 }; // * 1000
 
 	long long total_oop = timeOOP(TEST_COUNT);
 	long long total_dod = timeDOD(TEST_COUNT);
@@ -177,8 +177,9 @@ int main() {
 	std::cout << "\n\nFor OOP :Total: " << total_oop << " microsecond | Average: " << (total_oop / TEST_COUNT) << " microsecond\n";
 	std::cout << "For DOD :Total: " << total_dod << " microsecond | Average: " << (total_dod / TEST_COUNT) << " microsecond\n";
 
-	std::cout << "\n\nDOD is " << (total_oop - total_dod) << " microsecond (" << (total_oop - total_dod) / pow(10, 3) << " millisec) faster than OOP\n";
-	std::cout << "and " << (total_oop / TEST_COUNT) - (total_dod / TEST_COUNT) << " microsecond faster in Average\n";
+	std::cout << "\n\nFor " << (TEST_COUNT * 1000) << " test run, DOD is " << (total_oop - total_dod) 
+		<< " microsecond(" << (total_oop - total_dod) / pow(10, 3) << " millisec) faster than OOP\n"
+		<< "and " << (total_oop / TEST_COUNT) - (total_dod / TEST_COUNT) << " microsecond faster in Average\n";
 
 	return 0;
 }
